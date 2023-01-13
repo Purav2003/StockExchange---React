@@ -1,0 +1,132 @@
+body{
+  font-family: 'Sf Pro Display';
+  color: #000  !important;
+  background: #fff;
+}
+
+th{
+  color: #000 !important;
+  font-weight: 700;
+}
+
+td{
+  color: #000 !important;
+  cursor:default;
+}
+
+tr{
+  background: #fff;
+
+}
+
+tbody tr:hover{
+  background: #eee !important;
+  transition: 0.5s !important;
+}
+tr{
+  margin-top: 100px !important;
+}
+
+table{
+  border-collapse: collapse;
+  border-spacing:0 15px !important;
+}
+
+.dropdown-menu{
+  width: 360px;
+  max-width: 360px;
+}
+
+
+ul::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 40px;
+  height: 8px;
+  background-color: gray;
+}
+ul::-webkit-scrollbar-thumb {
+  border-radius: 40px;
+  background: #152238;
+}
+
+label{
+  color: #4a4a4a !important;
+}
+
+
+
+.demo{
+  display: flex !important;
+}
+
+.demo div{
+  max-width: 127px;
+  width: 127px;
+}
+
+.demo-1{
+  margin-top: 17px !important;
+  box-shadow: 1px 0 2px 1px rgba(0,0,0,0.04), 
+  1px 0 4px 2px rgba(0,0,0,0.04), 
+  1px 0 8px 4px rgba(0,0,0,0.04), 
+  1px 0 16px 8px rgba(0,0,0,0.04),
+  1px 0 32px 16px rgba(0,0,0,0.04 );
+   border-radius: 12px !important;
+}
+
+.demo-1:hover{
+  background: #152238;
+  color: #fff;
+  cursor: pointer;
+}
+
+.demo-2{
+  color:#152238;
+}
+
+input,.form-floating{
+  border-radius: 12px !important;
+}
+
+input:focus{
+  outline: none !important;
+  border: 1px solid #CED4DA !important;
+  box-shadow: none !important;
+}
+
+.demo-2{
+  background: #eee !important;
+  border-radius: 12px !important;
+}
+
+.demo-1:nth-child(1){
+  margin-top: 30px !important;
+}
+
+.demo{
+  text-align: center !important;
+}
+
+img{
+  width: 240px !important;
+  height: 190px !important;
+}
+
+.success1:hover{
+  background: linear-gradient(145deg,#BBDBBE,#DEEBDD);
+  color: #000 !important;    
+  
+}
+
+.danger1:hover{
+  background: linear-gradient(145deg,#dbbbbb,#c98888);
+  color: #000 !important;    
+} 
+
+.text-success2{
+  color: #14A44D !important;
+}
+
+.text-danger2{
+  color: #D1485F !important;  
+}
