@@ -2,6 +2,9 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import finhub from "../apis/finhub"
 import { StockChart } from "../componenets/StockChart"
+import { StockData } from "../componenets/StockData"
+import { useNavigate } from "react-router-dom";
+
 const formatData = (data) => {
     return data.t.map((el, index) => {
         return {
@@ -14,6 +17,8 @@ const formatData = (data) => {
 export const StockDetailPage = () => {
     const [chartData, setChartData] = useState()
     const { symbol } = useParams()
+    const navigate = useNavigate()
+
     useEffect(() => {
         const fetchData = async () => {
             const date = new Date()
@@ -71,10 +76,15 @@ export const StockDetailPage = () => {
         }
         fetchData()
     }, [symbol])
+    const handleStockSelect = (symbol) =>{
+        navigate(`/`)
+    }
     return <div>
         {chartData && (
             <div>
+                <button className="btn btn-primary m-2 back-btn" onClick={() => handleStockSelect()}>Back</button>
                 <StockChart chartData={chartData} symbol={symbol}></StockChart>
+                <StockData symbol={symbol}/>
             </div>
         )}
     </div>

@@ -130,3 +130,35 @@ img{
 .text-danger2{
   color: #D1485F !important;  
 }
+
+.back-btn{
+  background: none !important;
+  color: #000 !important;
+  border: solid 1px #3B71CA;
+}
+
+.date-btn:focus{
+  color: #fff !important;
+}
+
+.back-btn:hover,.date-btn:hover{
+  background: #3B71CA !important;
+  color: #fff !important;
+}
+
+.btn-del:hover{
+  color: #fff !important;
+}
+
+.btn-del{
+  visibility: hidden;
+}
+
+.demo-1:hover .text-success2,.demo-1:hover .text-danger2{
+  color: #000 !important;
+  font-weight: 500 !important;
+}
+.demo-1:hover .btn-del{
+  visibility: visible;
+}
+

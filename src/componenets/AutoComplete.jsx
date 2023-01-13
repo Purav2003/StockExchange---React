@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import finhub from "../apis/finhub"
 import { WatchListContext } from "../context/watchListContext"
 import no from "./no-res.png"
+
 export const AutoComplete = () => {
     const [search, setSearch] = useState("")
     const [results, setResults] = useState([])
@@ -62,6 +63,7 @@ export const AutoComplete = () => {
     }, [search])
     return <div className="col-md-4 p-5 mx-auto">
         <div className="form-floating dropdown shadow-5 " >
+        
             <input className="form-control" id="search" placeholder="search" value={search} onChange={(e) => setSearch(e.target.value)} autoComplete='off'></input>
             <label htmlFor="search">Search</label>
             {renderDropdown()}
