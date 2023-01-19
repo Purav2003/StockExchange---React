@@ -162,3 +162,11 @@ img{
   visibility: visible;
 }
 
+.loading {
+  margin-left: 47vw;
+  margin-top: 19vw;
+  height: 70px !important;
+  width: 70px !important;
+}
+
+

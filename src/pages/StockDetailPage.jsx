@@ -4,7 +4,7 @@ import finhub from "../apis/finhub"
 import { StockChart } from "../componenets/StockChart"
 import { StockData } from "../componenets/StockData"
 import { useNavigate } from "react-router-dom";
-
+import { Loading } from "./Loading"
 const formatData = (data) => {
     return data.t.map((el, index) => {
         return {
@@ -16,6 +16,7 @@ const formatData = (data) => {
 
 export const StockDetailPage = () => {
     const [chartData, setChartData] = useState()
+    const [loading,setLoading] = useState()
     const { symbol } = useParams()
     const navigate = useNavigate()
 
@@ -35,7 +36,9 @@ export const StockDetailPage = () => {
             }
             const oneWeek = currentTime - (7 * 24 * 60 * 60)
             const oneYear = currentTime - (365 * 24 * 60 * 60)
+            setLoading(true)
             try {
+
                 const responses = await Promise.all([finhub.get("/stock/candle", {
                     params: {
                         symbol,
@@ -71,13 +74,17 @@ export const StockDetailPage = () => {
             catch (err) {
                 console.log(err)
             }
-
+            setLoading(false)
 
         }
         fetchData()
     }, [symbol])
     const handleStockSelect = (symbol) =>{
         navigate(`/`)
+    }
+    if(loading){
+        return <Loading ></Loading>
+
     }
     return <div>
         {chartData && (

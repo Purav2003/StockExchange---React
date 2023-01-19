@@ -4,8 +4,11 @@ import { useNavigate } from "react-router-dom";
 import * as icons from "react-icons/bs"
 import * as icon from "react-icons/ri"
 import { WatchListContext } from "../context/watchListContext";
+import { Loading } from "../pages/Loading"
+
 export const StockList = () => {
     const [stock, setStock] = useState()
+    const [loading,setLoading]=useState(false)
     const { watchList, deleteStock } = useContext(WatchListContext)
     const navigate = useNavigate()
 
@@ -22,8 +25,9 @@ export const StockList = () => {
     useEffect(() => {
         let isMounted = true
         const fetchData = async () => {
+            setLoading(true)
             try {
-                const responses = await Promise.all(watchList.map((stock) => {
+                const responses = await Promise.all(watchList.map((stock) => {                
                     return finhub.get("/quote", {
                         params: {
                             symbol: stock
@@ -47,7 +51,7 @@ export const StockList = () => {
             } catch (err) {
                 console.log(err)
             }
-
+            setLoading(false)
         }
         fetchData()
         return () => (isMounted = false)
@@ -56,7 +60,9 @@ export const StockList = () => {
     const handleStockSelect = (symbol) => {
         navigate(`detail/${symbol}`)
     }
-
+    if(loading){
+        return <Loading></Loading>
+    }
     return <div className="col-md-7 data rounded " style={{ 'margin-left': '200px' }}>
         <table className="table">
             <thead>
